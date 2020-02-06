@@ -4,11 +4,13 @@ const thumbs = document.querySelector('.gallery__list');
 const largeImage = document.querySelector('.gallery__large-img');
 
 function handler(e) {
-  event.preventDefault();
+  e.preventDefault();
 
-  const directImage = e.target.src
-    ? e.target
-    : e.target.querySelector('img');
+  const { target } = e;
+
+  const directImage = target.src
+    ? target
+    : target.querySelector('img');
 
   largeImage.src = directImage.src.replace('-thumb.jpeg', '.png');
 }
